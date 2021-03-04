@@ -1,10 +1,12 @@
-<!DOCTYPE html>
- <html lang="en">
-   <head>
-     <meta charset="utf-8">
-     <title>Smoke Test</title>
-   </head>
-   <body>
-     Smoke Test
-   </body>
- </html>
+---
+layout: default
+title: Blog Example
+---
+
+    <h1>{{ page.title }}</h1>
+    {% for post in site.posts %}
+      <div>
+        <p><h2>{{ post.title }}</h2>{{ post.date | date_to_string }}</p>
+        <p>{{ post.content }}</p>
+      </div>
+    {% endfor %}
