@@ -5,6 +5,16 @@
     <link>https://theantennaguy.github.io/tags/</link>
     <description>Recent content in Tags on The Antenna Guy</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://theantennaguy.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Mon, 01 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://theantennaguy.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>rfid</title>
+      <link>https://theantennaguy.github.io/tags/rfid/</link>
+      <pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://theantennaguy.github.io/tags/rfid/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

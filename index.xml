@@ -5,11 +5,31 @@
     <link>https://theantennaguy.github.io/</link>
     <description>Recent content on The Antenna Guy</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://theantennaguy.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Mon, 01 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://theantennaguy.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>https://theantennaguy.github.io/about/</link>
+      <pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://theantennaguy.github.io/about/</guid>
+      <description>The purpose to create this blog was to give me a reason to write more and reduce the time procrastinating through YouTube or mindlessly navigating through the Web trying to find something of interest, in the end spending countless hours of useless web surfing without learning anything meaningful. I hope that owning this blog will force me to sit down to write ideas and actually get to spend more time structuring content around a subject that has interested me for nearly ten years at the time of this writing.</description>
+    </item>
+    
+    <item>
+      <title>Disclaimer</title>
+      <link>https://theantennaguy.github.io/disclaimer/</link>
+      <pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://theantennaguy.github.io/disclaimer/</guid>
+      <description>On most of the posts you&amp;rsquo;ll find in this blog, I used CST Microwave Studio for the simulations. I have been using this tool for more then eight years. I have access to a license through my company and I was authorized to use it for leisure not-for-profit purposes, so long I only use it during off-hours.
+You can use any other software, a free alternative is openEMS and there are student licenses and some limited demonstration licenses for other similar softwares, like Sonnet for example.</description>
+    </item>
+    
     <item>
       <title>UHF RFID Antennas - I - The basics</title>
       <link>https://theantennaguy.github.io/posts/2020-06-21-uhf-rfid-antennas/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://theantennaguy.github.io/posts/2020-06-21-uhf-rfid-antennas/</guid>
       <description>This is the first official entry to the blog!
