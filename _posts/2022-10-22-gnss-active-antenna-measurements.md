@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Active GNSS antenna design (Part III)
-draft: True
+draft: true
 ---
 
 Alright, welcome to the third and last post about the generation I Active GNSS antenna design saga. In this one I'll post about the actual results obtained from the constructed antenna. But first, I'll briefly explain something I forego in my previous two posts concerning the impedance match of the amplifier and was asked by a friend who happen to read this blog. 
@@ -12,7 +12,7 @@ $$
 ML_{dB}=-10 \times log_{10}(1-\rho^2)
 $$
 
-where $\rho$ is the reflection coefficient, or the $|S_{11}|$ in this case.
+where $\rho$ is the reflection coefficient, or the $\|S_{11}\|$ in this case.
 
 Before moving on to the measured results, here's some nice pictures of the fabricated PCBs of the antenna and the LNA.
 
