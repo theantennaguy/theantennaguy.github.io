@@ -13,11 +13,7 @@ In the [last post](https://theantennaguy.github.io/gnss-active-antenna/), I desc
 
 I mentioned in the last post that for the LNA design I've chosen the BFP640FESD low noise BJT transistor from Infineon. Because Infineon has good documentation, has support files for simulation, it's cheap and I had it available - problem is sometimes I trust too much on my memory, and when the PCBs for this board arrived, I realized I had not the BFP640FESD, but the BFP740F! 
 
-<div class="tenor-gif-embed" data-postid="11107551" data-share-method="host" data-aspect-ratio="1" data-width="45%">
-<p class="image-holder">
-<img src="https://tenor.com/view/elaine-well-thats-because-youre-an-idiot-seinfeld-idiot-gif-11107551">
-from <a href="https://tenor.com/search/elaine-gifs">Elaine GIFs</a></p></div> 
-<script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+<iframe style="display: block; margin-left: auto; margin-right: auto;" src="https://giphy.com/embed/IgdrGRwsetYRWirDsj" width="480" height="198" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/snl-saturday-night-live-season-45-IgdrGRwsetYRWirDsj">via GIPHY</a></p>
 
 Oh well, I'll explain the design steps with the BFP640FESD and use this opportunity to show what I checked and verified the impact of adapting the existing board and matching networks to the BFP740F instead of the BFP640F.
 
@@ -115,9 +111,7 @@ For that we need the following bias values:
 
 As for matching, since I couldn't change the input matching line, I just checked what would be the final performance of the amplifier in terms of Noise Figure, and adjusted the output matching network for maximum possible gain - which I realized is actually no output matching network at all!
 
-{:refdef: style="text-align: center;"}
-![pikachu](/images/post14/surprised-pikachu.png)
-{:refdef}
+<img style="display: block; margin-left: auto; margin-right: auto;" src="/images/post14/surprised-pikachu.png" width="400">
 
 So, with the previously designed input matching network (a $\lambda /4$ transmission line) and no output matching at all, the final S-parameters of the LNA looked like the following:
 
