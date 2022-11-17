@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>UHF RFID Antennas - II - Microstrip patch antenna air core (Part I) – The Antenna Guy – Electromagnetic Wizard</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="As I mentioned on my previous post, today’s post will be about the good old microstrip patch antenna.
+" />
+    <meta property="og:description" content="As I mentioned on my previous post, today’s post will be about the good old microstrip patch antenna.
+" />
+    
+    <meta name="author" content="The Antenna Guy" />
+
+    
+    <meta property="og:title" content="UHF RFID Antennas - II - Microstrip patch antenna air core (Part I)" />
+    <meta property="twitter:title" content="UHF RFID Antennas - II - Microstrip patch antenna air core (Part I)" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="The Antenna Guy - Electromagnetic Wizard" href="/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+    <div class="wrapper-masthead">
+      <div class="container">
+        <header class="masthead clearfix">
+          <a href="/" class="site-avatar"><img src="https://raw.githubusercontent.com/theantennaguy/theantennaguy.github.io/master/images/gilles-rolland-monnet-xpb438CRUnU-unsplash.jpg" /></a>
+
+          <div class="site-info">
+            <h1 class="site-name"><a href="/">The Antenna Guy</a></h1>
+            <p class="site-description">Electromagnetic Wizard</p>
+          </div>
+
+          <nav>
+            <a href="/">Blog</a>
+            <a href="/about">About</a>
+            <a href="/disclaimer">Disclaimer</a>
+            <a href="/termsofuse">Terms of Use</a>
+          </nav>
+        </header>
+      </div>
+    </div>
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+  <h1>UHF RFID Antennas - II - Microstrip patch antenna air core (Part I)</h1>
+
+  <div class="entry">
+    <p>As I mentioned on my previous post, today’s post will be about the good old microstrip patch antenna.</p>
+
+<p style="text-align: center;"><img src="/images/herewego.gif" alt="" /></p>
+
+<p>There are two implementations for the microstrip patch antenna typically used for UHF RFID ‘Reader’ antennas, one with an air core and other with ceramic core. The advantage of the former is that it has a wider bandwidth (can usually accommodate the ETSI and FCC bands), better efficiency and therefore higher radiation gain and usually has a better polarization purity. The advantage of the later is that it is smaller. That’s it, on ceramic core microstrip antennas, you sacrifice all performance parameters for size. In some applications which are very restraining in terms of available space, it is essential to have the possibility to reach a compromise between the size of the antenna and its performance.
+Now, as I already mentioned, I’m not going to dwell on the theory of microstrip patch antennas, how they come to be and how they operate, I’ll explain a few things along the way, but my approach will be more on how you go about designing a microstrip patch antenna for this application. To know a little bit more about the workings behind the microstrip antenna, I’d recommend reading <a href="https://www.amazon.com/Microstrip-Printed-Antenna-Design-Electromagnetics/dp/1891121731">Randy Bankroft’s book</a>.</p>
+
+<p>So, first thing to do is to gather the requirements for the antenna. In this particular case, we’re aiming for an antenna that can cover the whole world bands, should have circular polarization, a minimum in-band gain of 4 dBc and maximum in-band axial ratio of 4. Summarizing:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Frequency bandwidth (MHz)</th>
+      <th>865.1 – 927.2 (center @ 896.2)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Minimum in-band Gain (dBc)</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <td>Maximum in-band axial ratio</td>
+      <td>&lt;4.0</td>
+    </tr>
+    <tr>
+      <td>Polarization</td>
+      <td>RHCP or LHCP</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Besides the parameters, we need to know the available materials, in this case, we’ll want to use an inexpensive FR-4 type PCB and we’ll pick a 60 mil (1.524 mm) thickness board, and since we have no dimension limitation, let’s define an area of 250×250 mm for the antenna. 
+It’s called an air core microstrip antenna, because the middle layer between the patch and the ground plane is, well, air. The reasons to use the air layer in the microstrip patch is essentially to solve two underperforming parameters of the regular patch with only the dielectric substrate in the middle: The bandwidth and the gain.</p>
+
+<p style="text-align: center;"><img src="/images/air_core_sch.png" alt="" /></p>
+
+<p>To calculate the patch dimensions, you can use the expressions on the previous book, or you can use an <a href="http://www.emtalk.com/mpacalc.php">online calculator</a>. The downside of using the air core, is that the patch size increases, since the permittivity of the substrate decreases. If you have H1 &gt; H0, you can consider a permittivity of roughly 1.1 to calculate the patch dimensions and that should give a good starting point for further tuning.</p>
+
+<p>Another important aspect is the driving technique for the antenna. There’s several ways to drive a microstrip patch antenna, for this particular case, we’ll use a coaxial probe feeding method. The coaxial probe feeding is achieved by driving a coax cable through the substrate, soldering the outside shield to the ground plane and soldering the coax pin directly to the patch, at a specific location where the impedance is close to 50 Ohm.</p>
+
+<p>It is possible to calculate the approximate location where the 50 Ohm is located along the patch, in this case, I take and educated guess and then just tune it through simulation. To guess the correct position, we should consider that, as you move from the edge of the patch to the center, the impedance decreases, until you reach the center. At the center of the patch, the electric field strength is close to zero, essentially a short circuit, so the impedance is 0 Ohm. By knowing how the impedance varies when travelling along the patch, it’s easier to take a good guess (I’m not going to lie, experience also counts, that’s why they’re called “educated guesses”).</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="/images/coax_feed_variation.png" alt="" /></td>
+      <td><img src="/images/coax_feed_variation-2.png" alt="" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Below there’s a comparison of the reflection coefficient and the radiation gain between a square patch, built on a 120 mil (3.024 mm) thick FR-4 (er = 4.4) substrate, tuned for the RFID band, and a patch with an air core, with H1 = 20 mm.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="/images/microstrip1_s11.png" alt="" /></td>
+      <td><img src="/images/microstrip1_gain.png" alt="" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The bandwidth  of the air core patch is larger as well as the gain. From these results one can see the relationship between the permittivity and height of the substrate material and the antenna overall performance. With increased permittivity, there’s a shrinking of the patch size, but also a reduction in antenna bandwidth and gain. Plus, the height of the substrate also plays a vital role, since it counters the effect of the permittivity.</p>
+
+<p>All is related to the fringing effect of the electric field at the edges of the microstrip patch, which is responsible for the antenna radiation. The more ‘loose’ the fringing effect is, the better the efficiency. The higher the permittivity and thinner the distance between patch and ground, the more ‘tight’ the fringing effect is.</p>
+
+<p style="text-align: center;"><img src="/images/tenor.gif" alt="" /></p>
+
+<p>The reason to design a square patch, instead of the more natural rectangular patch, has to do with that fact that we’re designing a patch for circular polarization, and that’s easily attainable by starting from a square patch. Now you should know that decision comes at the cost of a reduction in bandwidth and efficiency of the antenna, but that’s a compromise we have to make to fulfill a mandatory requirement that’s the circular polarization. However, some things are still necessary, because a square patch has a linear polarization as one can see in the surface current distribution.</p>
+
+<p style="text-align: center;"><img src="/images/rfid_patch-896mhz_01.gif" alt="" /></p>
+
+<p>(As the phase progresses, the current points either upwards or downwards along the patch length.). So we need to make the polarization circular. However, there’s five different ways to get circular polarization with microstrip patches and this post is already getting long, so I’ll leave that to my next post.</p>
+
+<p style="text-align: center;"><img src="/images/bye2.gif" alt="" /></p>
+
+
+  </div>
+
+  <div class="date">
+    Written on June 27, 2020
+  </div>
+
+  
+</article>
+
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          
+<a href="mailto:antenna.guy.blog@gmail.com"><i class="svg-icon email"></i></a>
+
+
+<a href="https://github.com/theantennaguy"><i class="svg-icon github"></i></a>
+
+<a href="https://www.linkedin.com/in/rgoncalves88"><i class="svg-icon linkedin"></i></a>
+
+
+
+
+
+
+        </footer>
+      </div>
+    </div>
+
+    
+
+  </body>
+</html>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ["\\[", "\\]"] ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>

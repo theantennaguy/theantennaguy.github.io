@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>UHF RFID Antennas - III - Microstrip patch antenna air core (Part II) – The Antenna Guy – Electromagnetic Wizard</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="This is a continuation of my previous post on the air core microstrip patch antenna. It can be found here. At this point, we need to get the patch to radiate a circularly polarized wave (and correct the added inductance of the feed pin by the increased height).
+" />
+    <meta property="og:description" content="This is a continuation of my previous post on the air core microstrip patch antenna. It can be found here. At this point, we need to get the patch to radiate a circularly polarized wave (and correct the added inductance of the feed pin by the increased height).
+" />
+    
+    <meta name="author" content="The Antenna Guy" />
+
+    
+    <meta property="og:title" content="UHF RFID Antennas - III - Microstrip patch antenna air core (Part II)" />
+    <meta property="twitter:title" content="UHF RFID Antennas - III - Microstrip patch antenna air core (Part II)" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="The Antenna Guy - Electromagnetic Wizard" href="/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+    <div class="wrapper-masthead">
+      <div class="container">
+        <header class="masthead clearfix">
+          <a href="/" class="site-avatar"><img src="https://raw.githubusercontent.com/theantennaguy/theantennaguy.github.io/master/images/gilles-rolland-monnet-xpb438CRUnU-unsplash.jpg" /></a>
+
+          <div class="site-info">
+            <h1 class="site-name"><a href="/">The Antenna Guy</a></h1>
+            <p class="site-description">Electromagnetic Wizard</p>
+          </div>
+
+          <nav>
+            <a href="/">Blog</a>
+            <a href="/about">About</a>
+            <a href="/disclaimer">Disclaimer</a>
+            <a href="/termsofuse">Terms of Use</a>
+          </nav>
+        </header>
+      </div>
+    </div>
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+  <h1>UHF RFID Antennas - III - Microstrip patch antenna air core (Part II)</h1>
+
+  <div class="entry">
+    <p>This is a continuation of my previous post on the air core microstrip patch antenna. It can be found here. At this point, we need to get the patch to radiate a circularly polarized wave (and correct the added inductance of the feed pin by the increased height).</p>
+
+<p style="text-align: center;"><img src="/images/spin_cat.gif" alt="" /></p>
+
+<p>Now, if looking at the microstrip patch through the cavity mode analysis, it’s possible to produce two fundamental frequencies of operation, set by the propagation mode that is activated in the patch, these are respectively TM10 and TM01. If the patch is fed along the length, we get the TM10, if it is fed along the width, we get the TM01…or is it the other way around? I always forget which is which! But it doesn’t matter, what is relevant is that we keep in mind that exciting fields in different places of the patch will excite different modes which might have or not the same resonance, but will have a phase delay between them. Feeding on one edge of the patch excites one mode, while feeding at the other edge excites the other mode. In a square patch, both modes have the same resonant frequency.</p>
+
+<p>To achieve circular polarization, one has only to excite the patch in both modes simultaneously and with the correct 90º phase delay between them. Depending on which mode is delayed with respect to the other we can then achieve a circular wave that rotates to the left or to the right, achieving what’s referred as Left Hand Circular Polarization (LHCP) or Right Hand Circular Polarization (RHCP). There are five methods used to produce circular polarization on microstrip patch antennas:</p>
+
+<ol>
+  <li>Feed the patch along the diagonal of the patch and adjust the width to the length ratio so that the TM10 and TM01 modes are produced with a 90º phase and realize CP - If the patch is square, feeding along the diagonal will generate a linear slant polarization, not circular.</li>
+  <li>Using the same feeding orientation as before but using indentations and tabs to create the same 90º phase difference effect between modes.</li>
+  <li>Feed at radiation center but cutting corners at the edges of the patch.</li>
+  <li>Insert a slot in the middle of the patch. Either using a slant slot and feeding at radiation center or creating a horizontal slot and feeding at the diagonal of the patch.</li>
+  <li>Using a dual feed technique – Feed at both radiation centers with 90º phase delay between the points to produce the 90º shift between modes.</li>
+</ol>
+
+<p>Picture below shows the first four techniques mentioned before. If you want to learn more in depth about microstrip patch antennas, most of this stuff can be found in <a href="https://www.amazon.com/Microstrip-Printed-Antenna-Design-Electromagnetics/dp/1891121731">Randy Bankroft’s book</a>.</p>
+
+<p style="text-align: center;"><img src="/images/feed_methods.png" alt="" /></p>
+
+<p>More or less all these techniques will produce a similar axial ratio bandwidth. However. techniques (II) and (IV) are difficult to implement in the air core antenna without interfering with higher order modes, hence messing it up completely. The easiest way to go about, for the air core microstrip patch, and most commonly used, is the technique III.</p>
+
+<p style="text-align: center;"><img src="/images/dual_feed.jpg" alt="" /></p>
+
+<p>Technique (V) provides the larger axial-ratio band of all. However, it is the most costly solution and requires a specific feeding network, usually comprising a 90º-square hybrid in order to get two ports with the same amplitude and 90º phase delay in between them.</p>
+
+<p>The cool thing about the circular polarization techniques is that they also increase the bandwidth of the antenna. Essentially because we’re exciting two modes with resonances that are slightly apart. If you look at the effect on the smith chart, you’ll see a knot in the curve. The frequency at the center of the knot is the frequency where the polarization is closest to be circular (because in reality polarization is actually an ellipsoid). If you look at the impedance response, on the real part, instead of one ‘mountain’ found at resonance, you’ll see two mountains for both resonances.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="/images/linear_vs_circ_smith.png" alt="" /></td>
+      <td><img src="/images/linear_vs_circ_z.png" alt="" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>To demonstrate the stuff stated above, I built and simulated two microstrip patch antennas, using technique I and V. The .dxf of the designs are on github, they can be used to build a PCB layout, these are designed on regular 60 mil (1.6 mm) thick FR-4.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="/images/corner_cut_profile.png" alt="" /></th>
+      <th style="text-align: center"><img src="/images/hybrid_profile.png" alt="" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Microstrip patch with corners cut</td>
+      <td style="text-align: center">Microstrip patch with dual feed</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><img src="/images/corner_cut_profile2.png" alt="" /></td>
+      <td style="text-align: center"><img src="/images/hybrid_profile_2.png" alt="" /></td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Microstrip patch with corners cut (backplate)</td>
+      <td style="text-align: center">Microstrip patch with dual feed (backplate)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>When you compare the S11 between both antennas, you can see the matched frequency bandwidth of the circularly polarized patches are much wider then the linearly polarized from last post, and that, as mentioned in this post, the dual feed method provides and even wider matched frequency band. So wide, I had to simulate the antenna between 0.7 and 1.2 GHz to find out the edges of the matched frequency band.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="/images/cuts_vs_hybrid.png" alt="" /></td>
+      <td><img src="/images/cuts_vs_hybrid_wider.png" alt="" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Besides impedance match, the circular polarization bandwidth is also much wider in the dual-feed technique. Coming at the cost of a degradation in the gain of the antenna.</p>
+
+<p style="text-align: center;"><img src="/images/gain_axialr.png" alt="" /></p>
+
+<p>Now, both of these antennas have RHCP (Right Hand Circular Polarization). This can be seen in the radiation gain results, but can also be easily observed in the surface current distribution, as shown below.</p>
+
+<p style="text-align: center;"><img src="/images/hybrid_currents.gif" alt="" /></p>
+
+<p>Unlike the current distribution on the microstrip patch from last post, in which the arrows either pointed upwards or downwards, in this case they rotate with varying phase. Now you’re probably thinking “Hey, you said they were RHCP but the arrows are rotating counter-clockwise!”</p>
+
+<p style="text-align: center;"><img src="/images/liar.gif" alt="" /></p>
+
+<p>Now hold your horses Anakin before you get any respiratory problems and such. Actually, the convention about the polarization directions, is judged by the variation of the vector of the electric field when the wave travels away from the antenna! Check out this <a href="https://youtu.be/84AcKIcF7VY">awesome video</a> for more information on polarization.</p>
+
+<p style="text-align: center;"><img src="/images/obi-wan.gif" alt="" /></p>
+
+<p>Finally, to finish up, here’s a summary comparison of both implementations to the requirements we defined on last post.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Value</th>
+      <th>Corners cut microstrip</th>
+      <th>Dual feed microstrip</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Frequency bandwidth (MHz)</td>
+      <td>865.1 - 927.2</td>
+      <td>✅</td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td>Minimum in-band Gain (dBc)</td>
+      <td>4.0</td>
+      <td>✅</td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td>Maximum in-band axial ratio</td>
+      <td>4.0</td>
+      <td>❌</td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td>Polarization</td>
+      <td>RHCP</td>
+      <td>✅</td>
+      <td>✅</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>So, according to this summary, to comply with all the requirements, the air-core microstrip patch with dual feed technique is the best choice. However, if we reduce the usable band to just the FCC band, then the single feed corners cut antenna is better. It can always be tuned to have the circular polarization at the ETSI band instead. But, in the current design, the dual feed antenna has another advantage, that it can produce LHCP or RHCP depending on the port of the hybrid square that is fed with the signal. So it is a compromise between cost/complexity and performance, as always.</p>
+
+<p>If you paid close attention to the antenna pictures, you should be wondering what could be those circular rings on the patch. Remember that I said in the beginning of this post, we needed to compensate the increased inductance of the feed pin? Yeah, right, so this post is already long so… I’ll soon make a shorter post explaining about those circular rings that are found around the feed points in both antennas.</p>
+
+<p>Stay tuned! (pun intended)</p>
+
+  </div>
+
+  <div class="date">
+    Written on July  2, 2020
+  </div>
+
+  
+</article>
+
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          
+<a href="mailto:antenna.guy.blog@gmail.com"><i class="svg-icon email"></i></a>
+
+
+<a href="https://github.com/theantennaguy"><i class="svg-icon github"></i></a>
+
+<a href="https://www.linkedin.com/in/rgoncalves88"><i class="svg-icon linkedin"></i></a>
+
+
+
+
+
+
+        </footer>
+      </div>
+    </div>
+
+    
+
+  </body>
+</html>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [ ['$$', '$$'], ["\\[", "\\]"] ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
