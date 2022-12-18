@@ -32,7 +32,7 @@ I'll start with designing the IFA: IFAs are pretty old antennas, no busy coverin
 
 NOTE: gray zones are dielectric (FR4), yellow zones are copper.
 
-![rad_abs](/images/post7/radiation_abs.png) | ![rad_ar](/images/post7/radiation_ar.png)
+![rad_abs](/images/post7/radiation_3d.png) | ![rad_ar](/images/post7/radiation_ar_quadrifilar.png)
 :-------------------------:|:-------------------------:
 Radiation pattern (Directivity) at 900 MHz | Radiation pattern (Axial Ratio) at 900 MHz
 ![rad_pol](/images/post7/radiation_polarization.png) | ![rad_wfreq](/images/post7/radiation_w_freq.png)
