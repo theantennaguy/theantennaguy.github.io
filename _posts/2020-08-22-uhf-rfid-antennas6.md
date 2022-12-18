@@ -54,7 +54,7 @@ Now, in order to obtain a circular polarization radiation, you just feed each of
 
 With this setting the radiation results for the 4-element array antenna are the following:
 
-![rad_abs](/images/post7/radiation_abs_quadrifilar.png) | ![rad_ar](/images/post7/radiation_abs_quadrifilar.png)
+![rad_abs](/images/post7/radiation_abs.png) | ![rad_ar](/images/post7/radiation_ar.png)
 :-------------------------:|:-------------------------:
 Radiation pattern (Directivity) at 900 MHz | Radiation pattern (Axial Ratio) at 900 MHz
 ![rad_pol](/images/post7/radiation_lhcp.png) | ![rad_wfreq](/images/post7/radiation_rhcp.png)
