@@ -16,7 +16,7 @@ I've been cooking this post for a while, but due to several reasons (laziness), 
 Now, this stuff is no secret, you can read the [High-Speed Digital Design: A Handbook of Black Magic](https://books.google.pt/books?id=H5SsQgAACAAJ&hl=pt-PT&source=gbs_book_other_versions) by Howard W. Johnson and Martin Graham and you'd learn most of this stuff. The issue is, most electronics engineers don't actually read this book unless they work with Signal Integrity topics, but believe me if I say everyone can benefit from getting to know about it. And not only those poor EMC engineers, that have to dwell into the deepness of electronic hell, to fight the evil forces of the electromagnetic and restore the balance to the force(s)... quite literally.
 
 {:refdef: style="text-align: center;"}
-![Gandalf](/images/gandalf.gif)
+![Gandalf](/images/post9/gandalf.gif)
 {: refdef}
 {:refdef: style="text-align: center;"}
 (me, fightning the nasty harmonics. Or the way I picture it in my head...)
@@ -27,7 +27,7 @@ Well, that would be a pretty lame post if I'd just leave it at that. So I'm goin
 Let's start with the 2-layer PCB. Now you could be legitimately asking why would someone need to know this, who'd be the fool to design RF circuits on 2-layer FR-4 PCBs... 
 
 {:refdef: style="text-align: center;"}
-![fool](/images/fool.gif)
+![fool](/images/post9/fool.gif)
 {: refdef}
 
 That is legit, but you'd be surprised how much this is common ground nowadays, surf a little bit about, on such as the [Hackaday](https://hackaday.io), to see the amount of projects with wireless communications on it using 2-layer PCBs.
@@ -35,8 +35,8 @@ The simulation structure is microstrip line, tuned for 50  Ω , split in the mid
 
 Here's the simulation models for 2-layers and 4-layers examples: 
 {:refdef: style="text-align: center;"}
-![2layers](/images/microstrip_line_1.png)  
-![4layers](/images/microstrip_line_2.png)
+![2layers](/images/post9/microstrip_line_1.png)  
+![4layers](/images/post9/microstrip_line_2.png)
 {: refdef}
 
 For the 2-layer example I've modeled the dielectric as FR-4, while for the 4-layer board I've based the PCB on the [OSH Park 4-layer stackup](https://docs.oshpark.com/services/four-layer/). 
@@ -44,16 +44,16 @@ For the 2-layer example I've modeled the dielectric as FR-4, while for the 4-lay
 In scenario I, there's no vias connecting the plane, but since the boundaries of the simulation model, at widths edge, are modeled as perfect electrical conductors, both planes will touch this and will have the same potential. On scenario II, I added some vias close to the transition via. I also simulated with boards of 1.6 and 0.8 mm thicknesses to see the possible improvement a smaller via could provide, making up scenario III and IV. This leads to the following results:
 
 {:refdef: style="text-align: center;"}
-![2layers08](/images/2-layer_08mm.png)
-![2layers16](/images/2-layer_16mm.png)
-![4layersOSH](/images/4-layer.png)
+![2layers08](/images/post9/2-layer_08mm.png)
+![2layers16](/images/post9/2-layer_16mm.png)
+![4layersOSH](/images/post9/4-layer.png)
 {: refdef}
 
 If we break down these results, one thing is clear, don't even try to change layers of an RF track if you're designing on a 2 layer FR-4 PCB of 1.6 mm of thickness, no return vias will save your ass. I mean, the vias certainly improve a little bit, allow you to go a little beyond 2 GHz, but the performance is just trash anyway. Now, if you're smarter, you'd use a 0.8 mm board, well then the proper use of return vias will allow you to go up to 5 GHz without much trouble. But, fail to provide a decent return path and you'll be facing problems already at 2.5 GHz.
 Now if you look at the results for the 4-layer PCB, it gives you two things: 1) OSH Park 4-layer PCB stackup, with their permittivity controlled ISOLA substrate, is wicked good for RF designs; 2) the return vias have a considerable effect in this scenario. As you can see from the results above, if you have a correct return path you can do transitions on the RF tracks with vias and go way beyond 10 GHz without breaking a sweat.
 
 {:refdef: style="text-align: center;"}
-![sweat](/images/sweat.gif)
+![sweat](/images/post9/sweat.gif)
 {: refdef}
 
 But, if you fail to provide said decent return path, you may get away with a passable, but not good performance.
